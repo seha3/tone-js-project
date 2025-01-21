@@ -57,10 +57,10 @@ function App() {
 
   return (
     <>
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <div className="content">
       <h1>¡Hola Tone.js!</h1>
       <p>Usa las teclas <strong>A, S, D, F, G, H, J, K</strong> para tocar.</p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '20px' }}>
+      <div className="buttonKeys">
         {notes.map((note, index) => {
           const key = keys[index];
           const isActive = activeKey === key; // Verificar si esta tecla está activa
@@ -68,15 +68,7 @@ function App() {
             <button
               key={note}
               onClick={() => playNote(note)}
-              style={{
-                padding: '15px 20px',
-                fontSize: '16px',
-                backgroundColor: isActive ? '#ffd700' : '#f0f0f0', // Cambiar color si está activa
-                border: '1px solid #ccc',
-                borderRadius: '5px',
-                cursor: 'pointer',
-                transition: 'background-color 0.2s',
-              }}
+              className={`button ${isActive ? 'active' : ''}`}
             >
               {note} <br /> ({key || ""})
             </button>
